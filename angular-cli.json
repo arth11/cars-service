@@ -16,16 +16,18 @@
       "polyfills": "polyfills.ts",
       "test": "test.ts",
       "tsconfig": "tsconfig.json",
-      "prefix": "app",
+      "prefix": "cs",
       "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "styles.less"
       ],
       "scripts": [],
-      "environments": {
-        "source": "environments/environment.ts",
-        "dev": "environments/environment.ts",
-        "prod": "environments/environment.prod.ts"
-      }
+      "environmentSource": "environments/environment.ts",
+"environments": {
+  "dev": "environments/environment.ts",
+  "prod": "environments/environment.prod.ts"
+}
+
     }
   ],
   "e2e": {
@@ -57,7 +59,7 @@
     },
     "spec": {
       "class": false,
-      "component": true,
+      "component": false,
       "directive": true,
       "module": false,
       "pipe": true,

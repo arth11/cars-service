@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="row">
+
+    <div class="col-sm-12">
+      <table *ngIf="cars.length>0" class="cs-table table table-striped">
+        <thead>
+          <tr>
+            <th>
+              Car
+            </th>
+            <th>
+              Plate
+            </th>
+            <th>
+              Delivery date
+            </th>
+            <th>
+              Deadline
+            </th>
+            <th>
+              clinet
+            </th>
+            <th>
+              Cost
+            </th>
+            <th>
+              Action
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of cars;">
+            <td [ngClass]="{'row-error':car.isFullyDamaged}">{{car.model}}</td>
+            <td>{{car.plate}}</td>
+            <td>{{car.deliveryDate}}</td>
+            <td>{{car.deadline}}</td>
+            <td>{{car.client.firstName}} {{car.client.surname}}</td>
+            <td>{{car.cost}}</td>
+            <td>ACTION PLACEHOLDER</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+
+
+      <template #noCarsInfo>
+        <div class='no-cars-info'>
+          No cars in service
+        </div>
+      </template>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <button (click)="showGross()" class = "btn btn-primary btn-sm float-right">
+    SHOW GROSS
+</button> 
+    </div>
+
+  </div>
+ <cs-total-cost #totalCostRef [totalCost] = "totalCost" (shownGross)="onShownGross($event)"></cs-total-cost>
+ <div class="row" *ngIf="grossCost">
+  <div class="col-sm-12">
+<p class="text-right"> TOTAL GROSS COST {{grossCost}} PLN</p>
+  </div>
+
+ </div>
+</div>
